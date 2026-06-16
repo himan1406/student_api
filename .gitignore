@@ -1,4 +1,20 @@
+# Environment secrets — never commit real credentials
 .env
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+.Python
+venv/
+env/
+.venv/
+
+# OS / Editor
 .DS_Store
+.vscode/
+.idea/
+
+# Docker
+*.log

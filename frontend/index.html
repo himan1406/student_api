@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student API — Sign In</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<main class="stage">
+
+  <header class="masthead">
+    <span class="masthead__mark">§</span>
+    <span class="masthead__text">STUDENT RECORDS AUTHORITY</span>
+  </header>
+
+  <section class="card" id="authCard">
+
+    <div class="card__tabs">
+      <button class="tab tab--active" id="tabLogin" type="button">Sign In</button>
+      <button class="tab" id="tabSignup" type="button">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form class="form form--active" id="loginForm" autocomplete="off">
+      <label class="field">
+        <span class="field__label">Email</span>
+        <input class="field__input" type="email" id="loginEmail" placeholder="you@example.com" required>
+      </label>
+      <label class="field">
+        <span class="field__label">Password</span>
+        <input class="field__input" type="password" id="loginPassword" placeholder="••••••••" required>
+      </label>
+      <button class="btn btn--primary" type="submit">Sign In</button>
+      <p class="form__note">No account? <a href="#" id="goToSignup">Register one</a></p>
+    </form>
+
+    <!-- SIGNUP FORM -->
+    <form class="form" id="signupForm" autocomplete="off">
+      <label class="field">
+        <span class="field__label">Full name</span>
+        <input class="field__input" type="text" id="signupName" placeholder="Himanshu Rawat" required>
+      </label>
+      <label class="field">
+        <span class="field__label">Email</span>
+        <input class="field__input" type="email" id="signupEmail" placeholder="you@example.com" required>
+      </label>
+      <label class="field">
+        <span class="field__label">Password</span>
+        <input class="field__input" type="password" id="signupPassword" placeholder="min. 6 characters" minlength="6" required>
+      </label>
+      <button class="btn btn--primary" type="submit">Create Account</button>
+      <p class="form__note">Already registered? <a href="#" id="goToLogin">Sign in</a></p>
+    </form>
+
+    <div class="status" id="statusBox" hidden></div>
+
+  </section>
+
+  <!-- SESSION / TOKEN PANEL -->
+  <section class="card card--session" id="sessionCard" hidden>
+
+    <div class="session__badge">AUTHENTICATED</div>
+    <h1 class="session__name" id="sessionName">—</h1>
+    <p class="session__email" id="sessionEmail">—</p>
+
+    <div class="session__divider"></div>
+
+    <div class="session__row">
+      <span class="session__key">Access token</span>
+      <span class="session__pill session__pill--access" id="accessExpiry">expires in 05:00</span>
+    </div>
+    <code class="session__token" id="accessTokenDisplay">—</code>
+
+    <div class="session__row session__row--spaced">
+      <span class="session__key">Refresh token</span>
+      <span class="session__pill session__pill--refresh">valid 30 days</span>
+    </div>
+    <code class="session__token" id="refreshTokenDisplay">—</code>
+
+    <div class="session__divider"></div>
+
+    <div class="session__log" id="eventLog"></div>
+
+    <button class="btn btn--ghost" id="manualRefreshBtn" type="button">Force Refresh Now</button>
+    <button class="btn btn--outline" id="logoutBtn" type="button">Sign Out</button>
+
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
